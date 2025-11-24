@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practical 5: Country and Capital</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f2f5;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+        
+        /* --- CSS Requirement --- */
+        /* Customize the properties of the font of the capital */
+        #capital-display {
+            color: #d63384;       /* 1. Color */
+            font-weight: bold;    /* 2. Bold */
+            font-size: 24px;      /* 3. Font Size */
+            
+            /* Adding a little animation for a better effect */
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Select a Country to see its Capital</h2>
+    
+    <label for="country-list">Country: </label>
+    <select id="country-list" onchange="showCapital()">
+        <option value="">-- Select a Country --</option>
+        <option value="New Delhi">India</option>
+        <option value="Washington, D.C.">United States</option>
+        <option value="London">United Kingdom</option>
+        <option value="Tokyo">Japan</option>
+        <option value="Paris">France</option>
+    </select>
+
+    <span id="capital-display"></span>
+
+</div>
+
+<script>
+    // --- JavaScript Requirement ---
+    // Function to display the capital of the selected country
+    function showCapital() {
+        // 1. Get the select element
+        var selectBox = document.getElementById("country-list");
+        
+        // 2. Get the value of the selected option. 
+        // Since we set the value to the capital name in the HTML, this gives us the capital.
+        var selectedCapital = selectBox.value;
+        
+        // 3. Get the span element where we will display the capital
+        var displaySpan = document.getElementById("capital-display");
+        
+        // 4. Update the content of the span with the selected capital
+        displaySpan.textContent = selectedCapital;
+    }
+</script>
+
+</body>
+</html>
