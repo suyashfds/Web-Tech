@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+         /* --- SHARED BACKGROUND STYLES --- */
+         body {
+            background: radial-gradient(ellipse at right, #1b2735 0%, #090a0f 100%);
+            font-family: 'Segoe UI', sans-serif;
+            padding: 30px 10px; height: 100%; box-sizing: border-box;
+            border-right: 1px solid rgba(0, 242, 254, 0.3);
+        }
+        ul { list-style: none; padding: 0; margin: 0; perspective: 500px;}
+        li { margin-bottom: 20px; }
+        
+        /* Hard animated navigation buttons */
+        a {
+            text-decoration: none; color: #a0a0a0; font-weight: 600;
+            display: flex; align-items: center; padding: 15px 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px; border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); /* Hard pop effect */
+            transform-style: preserve-3d;
+        }
+        .emoji { margin-right: 15px; font-size: 1.4em; transition: 0.3s; }
+
+        /* The "Hard" Hover */
+        a:hover {
+            background: linear-gradient(45deg, #00f2fe, #4facfe);
+            color: #090a0f;
+            transform: translateX(20px) translateZ(30px) rotateY(-10deg);
+            box-shadow: -10px 10px 30px rgba(0, 242, 254, 0.4);
+            border-color: transparent;
+        }
+        a:hover .emoji { transform: scale(1.3) rotate(15deg); }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><a href="content.html" target="mainFrame"><span class="emoji">🏠</span>Home Base</a></li>
+        <li><a href="login.html" target="mainFrame"><span class="emoji">🔐</span>Access Portal</a></li>
+        <li><a href="catalogue.html" target="mainFrame"><span class="emoji">💠</span>The Collection</a></li>
+        <li><a href="registration.html" target="mainFrame"><span class="emoji">📝</span>New Member</a></li>
+    </ul>
+</body>
+</html>

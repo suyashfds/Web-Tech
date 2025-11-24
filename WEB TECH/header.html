@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        /* --- SHARED BACKGROUND STYLES --- */
+        body {
+            /* Dark background to match the others seamlessly */
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            color: white; text-align: center;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0; display: flex; justify-content: center; align-items: center; height: 100%;
+            overflow: hidden; border-bottom: 1px solid rgba(0, 242, 254, 0.3);
+        }
+        /* Neon flickering animation for the title */
+        h1 {
+            font-weight: 300; letter-spacing: 4px; font-size: 2.2em;
+            animation: flicker 3s infinite alternate;
+            display: flex; align-items: center;
+        }
+        .logo-glow { font-size: 1.5em; margin-right: 15px; animation: spin-glow 5s infinite linear; }
+        
+        @keyframes flicker {
+            0%, 100% { text-shadow: 0 0 5px #00f2fe, 0 0 20px #00f2fe, 0 0 50px #00f2fe; color: #fff; }
+            50% { text-shadow: 0 0 2px #4facfe, 0 0 10px #4facfe; color: #e0e0e0; }
+        }
+        @keyframes spin-glow {
+            0% { transform: rotate(0deg); filter: hue-rotate(0deg); }
+            100% { transform: rotate(360deg); filter: hue-rotate(360deg); }
+        }
+        .highlight { color: #00f2fe; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1><span class="logo-glow">🔮</span>LUMINARY <span class="highlight">BOOK EMPORIUM</span></h1>
+</body>
+</html>

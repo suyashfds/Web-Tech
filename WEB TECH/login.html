@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login - Luminary Books</title>
+    <style>
+        /* --- SHARED "HARD" ANIMATION CSS --- */
+        :root {
+            --primary: #00f2fe; --secondary: #4facfe; --accent: #f093fb;
+            --glass-bg: rgba(20, 30, 48, 0.7); --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh; margin: 0; overflow: hidden;
+            display: flex; justify-content: center; align-items: center; perspective: 1500px;
+        }
+        .bg-shapes { position: absolute; width: 100%; height: 100%; z-index: -1; transform-style: preserve-3d; animation: fly 30s infinite linear; }
+        .shape { position: absolute; width: 100px; height: 140px; background: linear-gradient(45deg, var(--primary), rgba(0,0,0,0)); opacity: 0.2; box-shadow: 0 0 30px var(--primary); }
+        .s1 { top: 20%; left: 20%; transform: translateZ(-500px) rotateY(45deg); }
+        .s2 { bottom: 30%; right: 25%; transform: translateZ(-200px) rotateX(60deg); animation-delay: -5s;}
+        .s3 { top: 50%; left: 50%; transform: translateZ(-800px) rotateZ(-30deg); animation-delay: -10s;}
+        @keyframes fly { 0% { transform: rotateY(0deg) rotateX(0deg) translateZ(0); } 50% { transform: rotateY(180deg) rotateX(10deg) translateZ(200px); } 100% { transform: rotateY(360deg) rotateX(0deg) translateZ(0); }}
+        /* --- END SHARED CSS --- */
+
+        .login-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            padding: 50px; border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: 0 0 50px rgba(0, 242, 254, 0.2);
+            text-align: center; color: white;
+            transform-style: preserve-3d; transition: 0.5s;
+        }
+        .login-box:hover { transform: rotateX(5deg) rotateY(-5deg) scale(1.02); box-shadow: 0 0 80px rgba(0, 242, 254, 0.4); }
+        h2 { font-weight: 300; letter-spacing: 3px; text-shadow: 0 0 10px var(--primary); }
+        input { width: 100%; padding: 15px; margin-bottom: 20px; background: rgba(255,255,255,0.1); border: none; border-radius: 30px; color: white; outline: none; transition: 0.3s; box-sizing: border-box;}
+        input:focus { box-shadow: 0 0 20px var(--secondary); background: rgba(255,255,255,0.2); }
+        button { width: 100%; padding: 15px; background: linear-gradient(90deg, var(--primary), var(--secondary)); border: none; border-radius: 30px; color: white; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { transform: scale(1.1); box-shadow: 0 0 30px var(--primary); }
+        #msg { margin-top: 20px; min-height: 25px; font-weight: bold;}
+        .shake { animation: err 0.5s; } @keyframes err { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-10px)} 75%{transform:translateX(10px)}}
+    </style>
+</head>
+<body>
+    <div class="bg-shapes"><div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div></div>
+    <div class="login-box" id="box">
+        <h2>LUMINARY ACCESS</h2>
+        <form id="loginForm">
+            <input type="text" id="user" placeholder="Username (suyash_raj)" required autocomplete="off">
+            <input type="password" id="pass" placeholder="Password (123)" required>
+            <button type="submit">AUTHENTICATE</button>
+        </form>
+        <div id="msg"></div>
+    </div>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', e => {
+            e.preventDefault();
+            const u = document.getElementById('user').value;
+            const p = document.getElementById('pass').value;
+            const msg = document.getElementById('msg');
+            const box = document.getElementById('box');
+
+            // --- CREDENTIALS FIXED HERE ---
+            if(u === 'suyash_raj' && p === '123') {
+               msg.style.color = '#00f2fe'; msg.innerHTML = 'Generating Access Token...';
+               box.style.transform = 'scale(1.1) rotateY(720deg)'; /* Crazy success animation */
+               setTimeout(() => { window.location.href = 'catalogue.html'; }, 2000);
+            } else {
+               msg.style.color = '#ff4757'; msg.textContent = 'ACCESS DENIED.';
+               box.classList.add('shake'); setTimeout(() => box.classList.remove('shake'), 500);
+            }
+        });
+    </script>
+</body>
+</html>

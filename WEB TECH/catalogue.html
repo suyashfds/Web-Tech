@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Catalogue - Luminary Books</title>
+    <style>
+        /* --- SHARED "HARD" ANIMATION CSS (Same as Login) --- */
+        :root {
+            --primary: #00f2fe; --secondary: #4facfe; --accent: #f093fb;
+            --glass-bg: rgba(20, 30, 48, 0.7); --glass-border: rgba(255, 255, 255, 0.1);
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+            min-height: 100vh; margin: 0; padding: 30px; overflow-x: hidden;
+            perspective: 2000px; /* Deeper perspective for grid */
+        }
+        .bg-shapes { position: fixed; top:0; left:0; width: 100%; height: 100%; z-index: -1; transform-style: preserve-3d; animation: fly 30s infinite linear; pointer-events: none;}
+        .shape { position: absolute; width: 100px; height: 140px; background: linear-gradient(45deg, var(--primary), rgba(0,0,0,0)); opacity: 0.2; box-shadow: 0 0 30px var(--primary); }
+        .s1 { top: 20%; left: 20%; transform: translateZ(-500px) rotateY(45deg); }
+        .s2 { bottom: 30%; right: 25%; transform: translateZ(-200px) rotateX(60deg); animation-delay: -5s;}
+        .s3 { top: 50%; left: 50%; transform: translateZ(-800px) rotateZ(-30deg); animation-delay: -10s;}
+        @keyframes fly { 0% { transform: rotateY(0deg) rotateX(0deg) translateZ(0); } 50% { transform: rotateY(180deg) rotateX(10deg) translateZ(200px); } 100% { transform: rotateY(360deg) rotateX(0deg) translateZ(0); }}
+        /* --- END SHARED CSS --- */
+
+        h2 { text-align: center; color: white; font-weight: 300; font-size: 2.5em; text-shadow: 0 0 20px var(--primary); margin-bottom: 40px;}
+
+        /* Grid Layout for Cards */
+        .catalogue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* Flipkart-style Card with Hard 3D Animation */
+        .book-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            color: white;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy transition */
+            transform-style: preserve-3d;
+            position: relative;
+        }
+
+        /* The "Hard" Hover Effect */
+        .book-card:hover {
+            transform: rotateX(10deg) translateY(-20px) scale(1.05);
+            box-shadow: 0 30px 60px rgba(0, 242, 254, 0.4), 0 0 20px var(--primary) inset;
+            border-color: var(--primary);
+            z-index: 10;
+        }
+
+        /* Author Image Circle */
+        .author-img {
+            width: 80px; height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary);
+            box-shadow: 0 0 20px var(--secondary);
+            margin-bottom: 15px;
+            transition: 0.5s;
+        }
+        .book-card:hover .author-img { transform: rotateY(360deg) scale(1.1); }
+
+        .title { font-size: 1.1em; font-weight: bold; margin: 10px 0 5px 0; }
+        .author-name { color: #ccc; font-size: 0.9em; margin-bottom: 15px; }
+        .price { font-size: 1.4em; color: var(--primary); font-weight: bold; margin-bottom: 15px; text-shadow: 0 0 10px var(--primary);}
+
+        .buy-btn {
+            padding: 10px 25px;
+            background: linear-gradient(45deg, var(--secondary), var(--primary));
+            border: none; border-radius: 20px; color: white; font-weight: bold; cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3); transition: 0.3s;
+        }
+        .buy-btn:hover { box-shadow: 0 0 30px var(--primary); letter-spacing: 2px;}
+
+    </style>
+</head>
+<body>
+    <div class="bg-shapes"><div class="shape s1"></div><div class="shape s2"></div><div class="shape s3"></div></div>
+    
+    <h2>LUMINARY COLLECTION</h2>
+    <div class="catalogue-grid">
+        <div class="book-card">
+            <img src="https://i.pravatar.cc/150?img=1" alt="F. Scott" class="author-img">
+            <div class="title">The Great Gatsby</div>
+            <div class="author-name">F. Scott Fitzgerald</div>
+            <div class="price">$15.99</div>
+            <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="book-card">
+            <img src="https://i.pravatar.cc/150?img=3" alt="T. Cormen" class="author-img">
+            <div class="title">Intro to Algorithms</div>
+            <div class="author-name">Thomas H. Cormen</div>
+            <div class="price">$85.50</div>
+            <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="book-card">
+            <img src="https://i.pravatar.cc/150?img=5" alt="Harper Lee" class="author-img">
+            <div class="title">To Kill a Mockingbird</div>
+            <div class="author-name">Harper Lee</div>
+            <div class="price">$12.99</div>
+            <button class="buy-btn">BUY NOW</button>
+        </div>
+         <div class="book-card">
+            <img src="https://i.pravatar.cc/150?img=8" alt="Russell" class="author-img">
+            <div class="title">AI: A Modern Approach</div>
+            <div class="author-name">Russell & Norvig</div>
+            <div class="price">$95.00</div>
+            <button class="buy-btn">BUY NOW</button>
+        </div>
+    </div>
+</body>
+</html>
