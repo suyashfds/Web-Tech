@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Methods Enhanced Demo</title>
+
+    <link rel="stylesheet" href="style.css">
+
+
+    <style>
+        /* This class defines the look of the second box */
+        .internal-card-theme {
+            border-top: 5px solid #27ae60; /* Vibrant Green */
+            background-color: #f9fff9; /* Subtle green tint background */
+        }
+
+        .internal-card-theme h2 {
+            color: #27ae60;
+        }
+        
+        .btn-internal {
+            background-color: #27ae60;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px; /* Rounder buttons defined internally */
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>CSS Implementation Methods</h1>
+    <p>Comparing Inline, Internal, and External Styles</p>
+    <br>
+
+    <div class="container">
+
+        <div class="card" style="border-top: 5px solid #e74c3c; background-color: #fff5f5;">
+            <h2 style="color: #e74c3c; text-decoration: underline;">1. Inline CSS</h2>
+            <p>Styles are written directly into the HTML element tag.</p>
+            <p style="font-size: 0.9em; color: #666;">Highest priority, but very messy code.</p>
+            <button style="background-color: #e74c3c; color: white; padding: 10px 20px; border: 2px dashed black; margin-top: 15px; cursor: pointer;">Hot Fix Button</button>
+        </div>
+
+
+        <div class="card internal-card-theme">
+            <h2>2. Internal CSS</h2>
+            <p>Styles are written in the <code>&lt;head&gt;</code> section of this file.</p>
+            <p style="font-size: 0.9em; color: #666;">Good for single-page documents.</p>
+            <button class="btn-internal">Page Button</button>
+        </div>
+
+
+        <div class="card external-card-theme">
+            <h2>3. External CSS</h2>
+            <p>Styles are written in a totally separate <code>.css</code> file.</p>
+            <p style="font-size: 0.9em; color: #666;">The professional, reusable way.</p>
+            <button class="btn-external">Global Button</button>
+        </div>
+
+    </div>
+
+</body>
+</html>
