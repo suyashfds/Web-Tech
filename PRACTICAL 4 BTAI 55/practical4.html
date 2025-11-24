@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Pop-up Boxes and Functions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-align: left;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 10px 5px;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        input[type="text"] {
+            padding: 8px;
+            width: 200px;
+            margin-left: 10px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #ccc;
+        }
+    </style>
+    <script>
+        // -----------------------------------------------------
+        // Problem 1: Display Date in Textbox
+        // -----------------------------------------------------
+        function displayDate() {
+            // Create a new Date object representing the current date and time
+            const currentDate = new Date();
+            
+            // Convert the date to a readable string format
+            const dateString = currentDate.toDateString() + " " + currentDate.toLocaleTimeString();
+            
+            // Set the value of the textbox with id 'datebox' to the date string
+            document.getElementById('datebox').value = dateString;
+        }
+
+        // -----------------------------------------------------
+        // Problem 2: Factorial of a Number using Prompt and Alert
+        // -----------------------------------------------------
+        function calculateFactorial() {
+            // Get input from the user using a prompt box
+            let n = prompt("Enter a positive number to calculate its factorial:");
+            
+            // Convert input to an integer
+            n = parseInt(n);
+
+            // Check if the input is a valid non-negative number
+            if (isNaN(n) || n < 0) {
+                alert("Please enter a valid non-negative integer.");
+                return;
+            }
+
+            // Calculate factorial
+            let factorial = 1;
+            for (let i = 1; i <= n; i++) {
+                factorial *= i;
+            }
+
+            // Display the result in an alert box
+            alert("The factorial of " + n + " is: " + factorial);
+        }
+
+        // -----------------------------------------------------
+        // Problem 3: Multiplication Table using Prompt and Alert
+        // -----------------------------------------------------
+        function generateTable() {
+            // Get input from the user
+            let n = prompt("Enter a number to generate its multiplication table:");
+            n = parseInt(n);
+
+            if (isNaN(n)) {
+                alert("Please enter a valid number.");
+                return;
+            }
+
+            // Initialize an empty string to construct the table
+            let tableOutput = "Multiplication Table for " + n + ":\n\n";
+            
+            // Loop from 1 to 10 to generate the table rows
+            for (let i = 1; i <= 10; i++) {
+                tableOutput += n + " x " + i + " = " + (n * i) + "\n";
+            }
+
+            // Display the complete table in an alert box
+            alert(tableOutput);
+        }
+
+        // -----------------------------------------------------
+        // Problem 4: Sum of n Numbers using Prompt, Confirm, and Alert
+        // -----------------------------------------------------
+        function calculateSum() {
+            let sum = 0;
+            let count = 0;
+            let continueAdding = true;
+
+            // The loop continues as long as the user clicks "OK" on the confirm box
+            do {
+                // Get a number from the user
+                let input = prompt("Enter a number to add to the sum:");
+                let n = parseFloat(input);
+
+                // Validate input
+                if (!isNaN(n)) {
+                    sum += n; // Add to sum
+                    count++; // Increment count of numbers entered
+                } else {
+                    alert("Invalid input. That wasn't a number.");
+                }
+
+                // Ask the user if they want to enter another number
+                // confirm() returns true for OK and false for Cancel
+                continueAdding = confirm("Current Sum: " + sum + "\n\nDo you want to add another number?");
+                
+            } while (continueAdding);
+
+            // Display final result
+            alert("You entered " + count + " numbers.\nThe final sum is: " + sum);
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h2>JavaScript Practical Tasks</h2>
+        
+        <p>
+            <label>1. Current Date and Time:</label>
+            <input type="text" id="datebox" readonly>
+            <button onclick="displayDate()">Display Date</button>
+        </p>
+        <hr>
+
+        <p>
+            <label>2. Calculate Factorial:</label>
+            <button onclick="calculateFactorial()">Enter Number (Prompt)</button>
+        </p>
+        <hr>
+
+        <p>
+            <label>3. Multiplication Table:</label>
+            <button onclick="generateTable()">Enter Number (Prompt)</button>
+        </p>
+        <hr>
+
+        <p>
+            <label>4. Sum of Multiple Numbers:</label>
+            <button onclick="calculateSum()">Start Adding (Prompt & Confirm)</button>
+        </p>
+
+    </div>
+
+</body>
+</html>
