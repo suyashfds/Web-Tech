@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+    <user>
+        <id>101</id>
+        <name>Alice Johnson</name>
+        <department>HR</department>
+        <email>alice@example.com</email>
+    </user>
+    <user>
+        <id>102</id>
+        <name>Bob Smith</name>
+        <department>Finance</department>
+        <email>bob@example.com</email>
+    </user>
+    <user>
+        <id>103</id>
+        <name>Charlie Brown</name>
+        <department>IT</department>
+        <email>charlie@example.com</email>
+    </user>
+    <user>
+        <id>104</id>
+        <name>Diana Prince</name>
+        <department>Marketing</department>
+        <email>diana@example.com</email>
+    </user>
+    <user>
+        <id>105</id>
+        <name>Evan Wright</name>
+        <department>Sales</department>
+        <email>evan@example.com</email>
+    </user>
+    <user>
+        <id>106</id>
+        <name>Fiona Gallagher</name>
+        <department>IT</department>
+        <email>fiona@example.com</email>
+    </user>
+    <user>
+        <id>107</id>
+        <name>George Miller</name>
+        <department>Logistics</department>
+        <email>george@example.com</email>
+    </user>
+    <user>
+        <id>108</id>
+        <name>Hannah Abbott</name>
+        <department>HR</department>
+        <email>hannah@example.com</email>
+    </user>
+    <user>
+        <id>109</id>
+        <name>Ian Somerhalder</name>
+        <department>Finance</department>
+        <email>ian@example.com</email>
+    </user>
+    <user>
+        <id>110</id>
+        <name>Julia Roberts</name>
+        <department>Management</department>
+        <email>julia@example.com</email>
+    </user>
+</users>
